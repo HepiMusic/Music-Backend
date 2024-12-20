@@ -1,8 +1,7 @@
 package com.hepi.music_api.security.permission.controller;
-
-import com.villagecan.villagecan_service.security.permission.dto.PermissionDTO;
-import com.villagecan.villagecan_service.security.permission.model.Permission;
-import com.villagecan.villagecan_service.security.permission.service.PermissionService;
+import com.hepi.music_api.security.permission.dto.PermissionDTO;
+import com.hepi.music_api.security.permission.model.Permission;
+import com.hepi.music_api.security.permission.service.PermissionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

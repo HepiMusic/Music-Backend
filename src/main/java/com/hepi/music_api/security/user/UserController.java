@@ -1,8 +1,9 @@
 package com.hepi.music_api.security.user;
 
-import com.villagecan.villagecan_service.common.Acknowledgement;
-import com.villagecan.villagecan_service.security.user.model.User;
-import com.villagecan.villagecan_service.security.user.repository.UserRepository;
+
+import com.hepi.music_api.common.Acknowledgement;
+import com.hepi.music_api.security.user.model.User;
+import com.hepi.music_api.security.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;

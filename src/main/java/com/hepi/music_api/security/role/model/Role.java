@@ -1,6 +1,6 @@
 package com.hepi.music_api.security.role.model;
 
-import com.villagecan.villagecan_service.security.permission.model.Permission;
+import com.hepi.music_api.security.permission.model.Permission;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

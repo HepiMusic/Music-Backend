@@ -1,6 +1,7 @@
 package com.hepi.music_api.security.role.repository;
 
-import com.villagecan.villagecan_service.security.role.model.Role;
+
+import com.hepi.music_api.security.role.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

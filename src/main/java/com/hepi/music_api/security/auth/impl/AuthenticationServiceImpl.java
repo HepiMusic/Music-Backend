@@ -1,20 +1,20 @@
 package com.hepi.music_api.security.auth.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.villagecan.villagecan_service.security.auth.AuthenticationRequest;
-import com.villagecan.villagecan_service.security.auth.AuthenticationResponse;
-import com.villagecan.villagecan_service.security.auth.AuthenticationService;
-import com.villagecan.villagecan_service.security.auth.RegisterRequest;
-import com.villagecan.villagecan_service.security.config.JwtService;
-import com.villagecan.villagecan_service.security.role.model.Role;
-import com.villagecan.villagecan_service.security.role.repository.RoleRepository;
-import com.villagecan.villagecan_service.security.token.Token;
-import com.villagecan.villagecan_service.security.token.TokenRepository;
-import com.villagecan.villagecan_service.security.token.TokenType;
-import com.villagecan.villagecan_service.security.user.enums.UserStatus;
-import com.villagecan.villagecan_service.security.user.model.User;
-import com.villagecan.villagecan_service.security.user.repository.UserRepository;
-import com.villagecan.villagecan_service.utills.HelperUtility;
+import com.hepi.music_api.security.auth.AuthenticationRequest;
+import com.hepi.music_api.security.auth.AuthenticationResponse;
+import com.hepi.music_api.security.auth.AuthenticationService;
+import com.hepi.music_api.security.auth.RegisterRequest;
+import com.hepi.music_api.security.config.JwtService;
+import com.hepi.music_api.security.role.model.Role;
+import com.hepi.music_api.security.role.repository.RoleRepository;
+import com.hepi.music_api.security.token.Token;
+import com.hepi.music_api.security.token.TokenRepository;
+import com.hepi.music_api.security.token.TokenType;
+import com.hepi.music_api.security.user.enums.UserStatus;
+import com.hepi.music_api.security.user.model.User;
+import com.hepi.music_api.security.user.repository.UserRepository;
+import com.hepi.music_api.utills.HelperUtility;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -55,7 +55,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .userStatus(UserStatus.INACTIVE)
                 .userCountryCode(request.getUserCountryCode())
                 .userIdNumber(request.getUserIdNumber())
-                .userHudumaNumber(request.getUserHudumaNo())
                 .userHashedMsisdn(HelperUtility.hashPhoneNumber(request.getUserPhone()))
                 .role(roleOpt.get())
                 .build();

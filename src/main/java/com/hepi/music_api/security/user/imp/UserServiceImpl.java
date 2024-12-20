@@ -1,10 +1,11 @@
 package com.hepi.music_api.security.user.imp;
 
-import com.villagecan.villagecan_service.common.Acknowledgement;
-import com.villagecan.villagecan_service.security.user.ChangePasswordRequest;
-import com.villagecan.villagecan_service.security.user.UserService;
-import com.villagecan.villagecan_service.security.user.model.User;
-import com.villagecan.villagecan_service.security.user.repository.UserRepository;
+
+import com.hepi.music_api.common.Acknowledgement;
+import com.hepi.music_api.security.user.ChangePasswordRequest;
+import com.hepi.music_api.security.user.UserService;
+import com.hepi.music_api.security.user.model.User;
+import com.hepi.music_api.security.user.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

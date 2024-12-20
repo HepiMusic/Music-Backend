@@ -1,7 +1,7 @@
 package com.hepi.music_api.security.config;
 
-import com.villagecan.villagecan_service.security.auditing.ApplicationAuditAware;
-import com.villagecan.villagecan_service.security.user.repository.UserRepository;
+import com.hepi.music_api.security.auditing.ApplicationAuditAware;
+import com.hepi.music_api.security.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

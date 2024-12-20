@@ -1,6 +1,6 @@
 package com.hepi.music_api.security.config;
 
-import com.villagecan.villagecan_service.security.token.TokenRepository;
+import com.hepi.music_api.security.token.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
