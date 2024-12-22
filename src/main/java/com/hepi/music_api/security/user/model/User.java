@@ -4,6 +4,7 @@ import com.hepi.music_api.country.Country;
 import com.hepi.music_api.security.role.model.Role;
 import com.hepi.music_api.security.token.Token;
 import com.hepi.music_api.security.user.enums.UserStatus;
+import com.hepi.music_api.vote.Vote;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -16,6 +17,8 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -76,6 +79,11 @@ public class User implements UserDetails {
   @OneToOne(mappedBy = "user")
   private ForgotPassword forgotPassword;
 
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Comment> comments = new ArrayList<>();
+
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Vote> votes = new ArrayList<>();
 
 
 

@@ -1,4 +1,4 @@
-package com.hepi.music_api.payment;
+package com.hepi.music_api.payment.model;
 
 import com.hepi.music_api.payment.enums.PaymentStatus;
 import com.hepi.music_api.security.user.model.User;
