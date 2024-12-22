@@ -1,6 +1,4 @@
 package com.hepi.music_api.security.user.model;
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hepi.music_api.security.role.model.Role;
 import com.hepi.music_api.security.token.Token;
@@ -17,7 +15,6 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
