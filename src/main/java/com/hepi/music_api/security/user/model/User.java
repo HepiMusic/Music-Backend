@@ -1,5 +1,6 @@
 package com.hepi.music_api.security.user.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.hepi.music_api.country.Country;
 import com.hepi.music_api.security.role.model.Role;
 import com.hepi.music_api.security.token.Token;
 import com.hepi.music_api.security.user.enums.UserStatus;
@@ -61,9 +62,9 @@ public class User implements UserDetails {
   @Column(name = "USER_ID_NUMBER")
   private Integer userIdNumber;
 
-  @Column(name = "USER_COUNTRY_CODE")
-  private String userCountryCode;
-
+  @ManyToOne
+  @JoinColumn(name = "country_id", nullable = true)
+  private Country country;
   @OneToMany(mappedBy = "user" ,orphanRemoval = true)
   @JsonIgnore
   private List<Token> tokens;
