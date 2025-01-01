@@ -4,7 +4,6 @@ import com.hepi.music_api.country.Country;
 import com.hepi.music_api.security.role.model.Role;
 import com.hepi.music_api.security.token.Token;
 import com.hepi.music_api.security.user.enums.UserStatus;
-import com.hepi.music_api.vote.Vote;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -36,7 +35,7 @@ public class User implements UserDetails {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "USER_CODE")
-  private Integer id;
+  private Long id;
 
   @Column(name = "USER_FIRSTNAME")
   private String firstname;

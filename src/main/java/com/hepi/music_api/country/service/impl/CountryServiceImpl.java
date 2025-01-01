@@ -4,11 +4,9 @@ import com.hepi.music_api.country.Country;
 import com.hepi.music_api.country.dto.CountryDTO;
 import com.hepi.music_api.country.repository.CountryRepository;
 import com.hepi.music_api.country.service.CountryService;
-import com.hepi.music_api.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CountryServiceImpl implements CountryService {
@@ -24,6 +22,7 @@ public class CountryServiceImpl implements CountryService {
         country.setName(countryDTO.getName());
         country.setCode(countryDTO.getCode());
         country.setRegion(countryDTO.getRegion());
+
         Country savedCountry = countryRepository.save(country);
         return savedCountry;
     }
@@ -60,6 +59,5 @@ public class CountryServiceImpl implements CountryService {
                 .orElseThrow(() -> new IllegalArgumentException("Country not found with id: " + id));
         countryRepository.delete(country);
     }
-
 
 }
