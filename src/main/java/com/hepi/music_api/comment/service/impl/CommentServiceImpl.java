@@ -7,7 +7,6 @@ import com.hepi.music_api.comment.service.CommentService;
 import com.hepi.music_api.exception.ResourceNotFoundException;
 import com.hepi.music_api.security.user.model.User;
 import com.hepi.music_api.security.user.repository.UserRepository;
-import com.hepi.music_api.songs.model.Song;
 import com.hepi.music_api.songs.repository.SongRepository;
 import org.springframework.stereotype.Service;
 

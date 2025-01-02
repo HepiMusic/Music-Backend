@@ -1,7 +1,6 @@
 package com.hepi.music_api.songs.controller;
 
 import com.hepi.music_api.songs.dto.SongDTO;
-import com.hepi.music_api.songs.model.Song;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

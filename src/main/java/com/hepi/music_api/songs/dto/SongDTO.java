@@ -9,10 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SongDTO {
+    private Long id;
     private String title;
     private String description;
-    private String thumbnail;
-    private Long artistId;  // Reference to the artist
-    private Long categoryId;
+    private String filePath;
+    private String thumbnailPath;
+    private Long artistId;
+    private Long genreId;
     private Long countryId;
+    private Long tribeId;
+
 }
