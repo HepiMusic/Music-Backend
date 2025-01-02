@@ -1,6 +1,6 @@
 package com.hepi.music_api.genre.repository;
 
-import com.hepi.music_api.genre.Genre;
+import com.hepi.music_api.genre.model.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

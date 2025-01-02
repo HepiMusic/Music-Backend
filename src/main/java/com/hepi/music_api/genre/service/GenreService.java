@@ -1,6 +1,6 @@
 package com.hepi.music_api.genre.service;
 
-import com.hepi.music_api.genre.Genre;
+import com.hepi.music_api.genre.model.Genre;
 import com.hepi.music_api.genre.dto.GenreDTO;
 import com.hepi.music_api.songs.model.Song;
 
@@ -14,4 +14,6 @@ public interface GenreService {
     Genre getGenreDetails(Long genreId);
     List<Genre> getAllGenres();
     List<Song> getSongsByGenre(Long genreId);
+
+    List<Song> filterSongsByGenre(Long id);
 }

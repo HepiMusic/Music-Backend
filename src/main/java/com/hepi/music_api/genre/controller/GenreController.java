@@ -1,6 +1,6 @@
 package com.hepi.music_api.genre.controller;
 
-import com.hepi.music_api.genre.Genre;
+import com.hepi.music_api.genre.model.Genre;
 import com.hepi.music_api.genre.dto.GenreDTO;
 import com.hepi.music_api.genre.service.GenreService;
 import com.hepi.music_api.songs.model.Song;
@@ -53,4 +53,11 @@ public class GenreController {
         List<Song> songs = genreService.getSongsByGenre(id);
         return new ResponseEntity<>(songs, HttpStatus.OK);
     }
+
+    @GetMapping("/{id}/filter-songs")
+    public ResponseEntity<List<Song>> filterSongsByGenre(@PathVariable Long id) {
+        List<Song> songs = genreService.filterSongsByGenre(id);
+        return new ResponseEntity<>(songs, HttpStatus.OK);
+    }
+
 }

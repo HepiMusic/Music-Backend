@@ -1,4 +1,4 @@
-package com.hepi.music_api.genre;
+package com.hepi.music_api.genre.model;
 
 import com.hepi.music_api.songs.model.Song;
 import jakarta.persistence.*;
@@ -22,10 +22,20 @@ public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long genreId;
-    private String name;
+    @Column(nullable = false, unique = true)
+    private String name; // e.g., "Gospel", "Reggae"
+
+    @Column(length = 500)
     private String description;
+
+    @Column(name = "thumbnail_url")
+    private String thumbnailUrl; // URL for the genre's icon/image
+
     @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Song> songs = new ArrayList<>();
+
+    @Column(name = "popularity_score", nullable = false)
+    private int popularityScore = 0; // Based on song count or user engagement
 
 
 

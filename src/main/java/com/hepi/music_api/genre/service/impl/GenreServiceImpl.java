@@ -1,7 +1,7 @@
 package com.hepi.music_api.genre.service.impl;
 
 import com.hepi.music_api.exception.ResourceNotFoundException;
-import com.hepi.music_api.genre.Genre;
+import com.hepi.music_api.genre.model.Genre;
 import com.hepi.music_api.genre.dto.GenreDTO;
 import com.hepi.music_api.genre.repository.GenreRepository;
 import com.hepi.music_api.genre.service.GenreService;
@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -28,6 +29,7 @@ public class GenreServiceImpl implements GenreService {
         Genre genre = new Genre();
         genre.setName(genreDTO.getName());
         genre.setDescription(genreDTO.getDescription());
+        genre.setThumbnailUrl(genreDTO.getThumbnailUrl());
         return genreRepository.save(genre);
     }
 
@@ -38,6 +40,8 @@ public class GenreServiceImpl implements GenreService {
 
         genre.setName(genreDTO.getName());
         genre.setDescription(genreDTO.getDescription());
+        genre.setThumbnailUrl(genreDTO.getThumbnailUrl());
+
         return genreRepository.save(genre);
     }
 
@@ -64,7 +68,20 @@ public class GenreServiceImpl implements GenreService {
     @Override
     public List<Song> getSongsByGenre(Long genreId) {
         Genre genre = genreRepository.findById(genreId)
-                .orElseThrow(() -> new ResourceNotFoundException("Genre not found with ID: " + genreId));
+                .orElseThrow(() -> new IllegalArgumentException("Genre not found with ID: " + genreId));
+
+        // Update the popularity score based on the number of songs
+        genre.setPopularityScore(genre.getSongs().size());
+        genreRepository.save(genre);
+
         return genre.getSongs();
     }
+    @Override
+    public List<Song> filterSongsByGenre(Long genreId) {
+        return songRepository.findAll().stream()
+                .filter(song -> song.getGenre() != null && song.getGenre().getGenreId().equals(genreId))
+                .collect(Collectors.toList());
+    }
+
+
 }

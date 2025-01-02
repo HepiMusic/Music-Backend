@@ -1,11 +1,10 @@
 package com.hepi.music_api.songs.service.impl;
 
-import com.hepi.music_api.artist.Artist;
 import com.hepi.music_api.artist.repository.ArtistRepository;
 import com.hepi.music_api.country.Country;
 import com.hepi.music_api.country.repository.CountryRepository;
 import com.hepi.music_api.exception.ResourceNotFoundException;
-import com.hepi.music_api.genre.Genre;
+import com.hepi.music_api.genre.model.Genre;
 import com.hepi.music_api.genre.repository.GenreRepository;
 import com.hepi.music_api.songs.dto.SongDTO;
 import com.hepi.music_api.songs.model.Song;

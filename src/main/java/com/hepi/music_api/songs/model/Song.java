@@ -1,9 +1,8 @@
 package com.hepi.music_api.songs.model;
 
-import com.hepi.music_api.artist.Artist;
 import com.hepi.music_api.comment.model.Comment;
 import com.hepi.music_api.country.Country;
-import com.hepi.music_api.genre.Genre;
+import com.hepi.music_api.genre.model.Genre;
 import com.hepi.music_api.tribe.Tribe;
 import com.hepi.music_api.vote.model.Vote;
 import jakarta.persistence.*;

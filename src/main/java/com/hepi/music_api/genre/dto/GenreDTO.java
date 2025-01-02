@@ -12,5 +12,6 @@ public class GenreDTO {
     private Long id;
     private String name;
     private String description;
+    private String thumbnailUrl; // URL for the genre's image
 
 }
