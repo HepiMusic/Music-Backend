@@ -1,7 +1,8 @@
 package com.hepi.music_api.songs.service.impl;
 
+import com.hepi.music_api.artist.model.Artist;
 import com.hepi.music_api.artist.repository.ArtistRepository;
-import com.hepi.music_api.country.Country;
+import com.hepi.music_api.country.model.Country;
 import com.hepi.music_api.country.repository.CountryRepository;
 import com.hepi.music_api.exception.ResourceNotFoundException;
 import com.hepi.music_api.genre.model.Genre;
@@ -11,6 +12,7 @@ import com.hepi.music_api.songs.model.Song;
 import com.hepi.music_api.songs.repository.SongRepository;
 import com.hepi.music_api.songs.service.SongService;
 import com.hepi.music_api.tribe.Tribe;
+import com.hepi.music_api.tribe.repository.TribeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +30,11 @@ public class SongServiceImpl implements SongService {
 
     @Override
     public Song addSong(SongDTO songDTO) {
-        Artist artist = artistRepository.findById(songDTO.getArtistId())
+        Artist artist = artistRepository.findByArtistId(songDTO.getArtistId())
                 .orElseThrow(() -> new ResourceNotFoundException("Artist not found with ID: " + songDTO.getArtistId()));
-        Genre genre = genreRepository.findById(songDTO.getGenreId())
+        Genre genre = genreRepository.findByGenreId(songDTO.getGenreId())
                 .orElseThrow(() -> new ResourceNotFoundException("Genre not found with ID: " + songDTO.getGenreId()));
-        Country country = countryRepository.findById(songDTO.getCountryId())
+        Country country = countryRepository.findByCountryId(songDTO.getCountryId())
                 .orElseThrow(() -> new ResourceNotFoundException("Country not found with ID: " + songDTO.getCountryId()));
         Tribe tribe = null;
         if (songDTO.getTribeId() != null) {
@@ -55,18 +57,18 @@ public class SongServiceImpl implements SongService {
 
     @Override
     public Song updateSong(Long songId, SongDTO songDTO) {
-        Song song = songRepository.findById(songId)
+        Song song = songRepository.findBySongId(songId)
                 .orElseThrow(() -> new ResourceNotFoundException("Song not found with ID: " + songId));
 
-        Artist artist = artistRepository.findById(songDTO.getArtistId())
+        Artist artist = artistRepository.findByArtistId(songDTO.getArtistId())
                 .orElseThrow(() -> new ResourceNotFoundException("Artist not found with ID: " + songDTO.getArtistId()));
-        Genre genre = genreRepository.findById(songDTO.getGenreId())
+        Genre genre = genreRepository.findByGenreId(songDTO.getGenreId())
                 .orElseThrow(() -> new ResourceNotFoundException("Genre not found with ID: " + songDTO.getGenreId()));
-        Country country = countryRepository.findById(songDTO.getCountryId())
+        Country country = countryRepository.findByCountryId(songDTO.getCountryId())
                 .orElseThrow(() -> new ResourceNotFoundException("Country not found with ID: " + songDTO.getCountryId()));
         Tribe tribe = null;
         if (songDTO.getTribeId() != null) {
-            tribe = tribeRepository.findById(songDTO.getTribeId())
+            tribe = tribeRepository.findByTribeId(songDTO.getTribeId())
                     .orElseThrow(() -> new ResourceNotFoundException("Tribe not found with ID: " + songDTO.getTribeId()));
         }
 
@@ -84,7 +86,7 @@ public class SongServiceImpl implements SongService {
 
     @Override
     public void deleteSong(Long songId) {
-        if (!songRepository.existsById(songId)) {
+        if (!songRepository.existsBySongId(songId)) {
             throw new ResourceNotFoundException("Song not found with ID: " + songId);
         }
         songRepository.deleteById(songId);
@@ -92,7 +94,7 @@ public class SongServiceImpl implements SongService {
 
     @Override
     public Song getSongDetails(Long songId) {
-        return songRepository.findById(songId)
+        return songRepository.findBySongId(songId)
                 .orElseThrow(() -> new ResourceNotFoundException("Song not found with ID: " + songId));
     }
 
@@ -103,16 +105,16 @@ public class SongServiceImpl implements SongService {
 
     @Override
     public List<Song> getSongsByArtist(Long artistId) {
-        return songRepository.findByArtistId(artistId);
+        return songRepository.findAllByArtist_ArtistId(artistId);
     }
 
     @Override
     public List<Song> getSongsByGenre(Long genreId) {
-        return songRepository.findByGenreId(genreId);
+        return songRepository.findAllByGenre_GenreId(genreId);
     }
 
     @Override
     public List<Song> getSongsByCountry(Long countryId) {
-        return songRepository.findByCountryId(countryId);
+        return songRepository.findAllByCountry_CountryId(countryId);
     }
 }

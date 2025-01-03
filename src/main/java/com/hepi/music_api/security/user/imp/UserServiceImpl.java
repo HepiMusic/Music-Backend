@@ -54,13 +54,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByUserCode(Integer userCode) {
+    public User findByUserCode(Long userCode) {
         return repository.findById(userCode).orElseThrow(() ->
                 new IllegalStateException("User not found with code : "+ userCode));
     }
 
     @Override
-    public Acknowledgement deleteUser(Integer usercode) {
+    public Acknowledgement deleteUser(Long usercode) {
         User user = repository.findById(usercode).orElseThrow(() -> new IllegalStateException("User not found with code : "+ usercode));
         repository.delete(user);
         return Acknowledgement

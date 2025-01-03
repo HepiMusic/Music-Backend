@@ -29,7 +29,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public Comment addComment(CommentDTO commentDTO) {
-        Song song = songRepository.findById(commentDTO.getSongId())
+        Song song = songRepository.findBySongId(commentDTO.getSongId())
             .orElseThrow(() -> new ResourceNotFoundException("Song not found with ID: " + commentDTO.getSongId()));
 
         User user = userRepository.findById(commentDTO.getUserId())
@@ -46,12 +46,12 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> getCommentsBySong(Long songId) {
-        return commentRepository.findBySongId(songId);
+        return commentRepository.findAllBySong_SongId(songId);
     }
 
     @Override
     public List<Comment> getCommentsByUser(Long userId) {
-        return commentRepository.findByUserId(userId);
+        return commentRepository.findAllByUser_Id(userId);
     }
 
     @Override

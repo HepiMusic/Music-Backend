@@ -1,6 +1,6 @@
 package com.hepi.music_api.artist.model;
 
-import com.hepi.music_api.country.Country;
+import com.hepi.music_api.country.model.Country;
 import com.hepi.music_api.songs.model.Song;
 import com.hepi.music_api.tribe.Tribe;
 import jakarta.persistence.*;
@@ -34,11 +34,11 @@ public class Artist {
     private String thumbnailUrl; // URL for artist's image
 
     @ManyToOne
-    @JoinColumn(name = "country_id", nullable = false)
+    @JoinColumn(name = "countryId", nullable = false)
     private Country country; // Reference to Country entity
 
     @ManyToOne
-    @JoinColumn(name = "tribe_id")
+    @JoinColumn(name = "tribeId")
     private Tribe tribe; // Reference to Tribe entity (optional)
 
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, orphanRemoval = true)

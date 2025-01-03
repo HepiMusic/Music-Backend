@@ -1,6 +1,7 @@
 package com.hepi.music_api.vote.model;
 
 import com.hepi.music_api.security.user.model.User;
+import com.hepi.music_api.songs.model.Song;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,7 +1,9 @@
 package com.hepi.music_api.comment.dto;
 
-import java.time.LocalDateTime;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+@Data
 public class CommentDTO {
     private Long id;
     private Long songId;

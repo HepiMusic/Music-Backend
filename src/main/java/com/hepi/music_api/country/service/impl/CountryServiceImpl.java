@@ -1,6 +1,6 @@
 package com.hepi.music_api.country.service.impl;
 
-import com.hepi.music_api.country.Country;
+import com.hepi.music_api.country.model.Country;
 import com.hepi.music_api.country.dto.CountryDTO;
 import com.hepi.music_api.country.repository.CountryRepository;
 import com.hepi.music_api.country.service.CountryService;
@@ -35,14 +35,14 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public Country getCountryById(Long id) {
-        Country country = countryRepository.findById(id)
+        Country country = countryRepository.findByCountryId(id)
                 .orElseThrow(() -> new IllegalArgumentException("Country not found with id: " + id));
         return country;
     }
 
     @Override
     public Country updateCountry(Long id, CountryDTO countryDTO) {
-        Country country = countryRepository.findById(id)
+        Country country = countryRepository.findByCountryId(id)
                 .orElseThrow(() -> new IllegalArgumentException("Country not found with id: " + id));
 
         country.setName(countryDTO.getName());
@@ -55,7 +55,7 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public void deleteCountry(Long id) {
-        Country country = countryRepository.findById(id)
+        Country country = countryRepository.findByCountryId(id)
                 .orElseThrow(() -> new IllegalArgumentException("Country not found with id: " + id));
         countryRepository.delete(country);
     }

@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface ArtistRepository extends JpaRepository<Artist, Long> {
-    List<Artist> findByCountryId(Long countryId);
+//    List<Artist> findByCountryId(Long countryId);
     Optional<Artist> findByName(String name);
     Optional<Artist> findByArtistId(Long artistId);
 }

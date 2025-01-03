@@ -33,13 +33,13 @@ public class UserController {
     }
 
     @GetMapping("/{usercode}")
-    public ResponseEntity<User> getUserByUserCode(@PathVariable Integer usercode) {
+    public ResponseEntity<User> getUserByUserCode(@PathVariable Long usercode) {
         return ResponseEntity.ok(service.findByUserCode(usercode));
     }
 
 
     @DeleteMapping("/{usercode}")
-    public ResponseEntity<Acknowledgement> deleteUser(@PathVariable Integer usercode) {
+    public ResponseEntity<Acknowledgement> deleteUser(@PathVariable Long usercode) {
         return ResponseEntity.ok(service.deleteUser(usercode));
     }
 

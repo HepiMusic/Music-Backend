@@ -1,7 +1,8 @@
 package com.hepi.music_api.songs.model;
 
+import com.hepi.music_api.artist.model.Artist;
 import com.hepi.music_api.comment.model.Comment;
-import com.hepi.music_api.country.Country;
+import com.hepi.music_api.country.model.Country;
 import com.hepi.music_api.genre.model.Genre;
 import com.hepi.music_api.tribe.Tribe;
 import com.hepi.music_api.vote.model.Vote;
@@ -24,7 +25,7 @@ import java.util.List;
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long songId;
 
     @Column(nullable = false, unique = true)
     private String title;

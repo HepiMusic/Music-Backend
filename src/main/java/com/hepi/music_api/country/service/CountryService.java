@@ -1,6 +1,6 @@
 package com.hepi.music_api.country.service;
 
-import com.hepi.music_api.country.Country;
+import com.hepi.music_api.country.model.Country;
 import com.hepi.music_api.country.dto.CountryDTO;
 
 import java.util.List;

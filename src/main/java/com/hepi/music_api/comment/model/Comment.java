@@ -1,10 +1,20 @@
 package com.hepi.music_api.comment.model;
 
 import com.hepi.music_api.security.user.model.User;
+import com.hepi.music_api.songs.model.Song;
 import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDateTime;
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@DynamicInsert
+@DynamicUpdate
 @Entity
 @Table(name = "comments")
 public class Comment {

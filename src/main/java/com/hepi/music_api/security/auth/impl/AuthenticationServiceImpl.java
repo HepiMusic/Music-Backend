@@ -53,7 +53,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .password(passwordEncoder.encode(request.getUserPassword()))
                 .userPhoneNumber(request.getUserPhone())
                 .userStatus(UserStatus.INACTIVE)
-                .userCountryCode(request.getUserCountryCode())
                 .userIdNumber(request.getUserIdNumber())
                 .userHashedMsisdn(HelperUtility.hashPhoneNumber(request.getUserPhone()))
                 .role(roleOpt.get())

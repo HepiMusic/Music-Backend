@@ -1,4 +1,4 @@
-package com.hepi.music_api.country;
+package com.hepi.music_api.country.model;
 
 import com.hepi.music_api.security.user.model.User;
 import com.hepi.music_api.tribe.Tribe;
@@ -27,11 +27,11 @@ public class Country {
     private String code; // Country code, e.g., KE, UG, TZ
     private String region; // E.g., East Africa, West Africa
 
-    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Tribe> tribes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<User> users = new ArrayList<>();
+//    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Tribe> tribes = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<User> users = new ArrayList<>();
 
 
 

@@ -29,7 +29,7 @@ public class VoteServiceImpl implements VoteService {
         User user = userRepository.findById(voteDTO.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + voteDTO.getUserId()));
 
-        Optional<Vote> existingVote = voteRepository.findBySongIdAndUserId(song.getSongId(), user.getId());
+        Optional<Vote> existingVote = voteRepository.findBySong_SongIdAndUser_Id(song.getSongId(), user.getId());
         if (existingVote.isPresent()) {
             existingVote.get().setVoteType(voteDTO.getVoteType());
             return voteRepository.save(existingVote.get());

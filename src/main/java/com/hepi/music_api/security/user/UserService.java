@@ -15,8 +15,8 @@ public interface UserService {
     void changePassword(ChangePasswordRequest request, Principal connectedUser);
 
     Page<User> findAll(Pageable pageable);
-    User findByUserCode(Integer userCode);
+    User findByUserCode(Long userCode);
 
 
-    Acknowledgement deleteUser(Integer usercode);
+    Acknowledgement deleteUser(Long usercode);
 }

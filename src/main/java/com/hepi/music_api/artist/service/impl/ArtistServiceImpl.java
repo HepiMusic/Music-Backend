@@ -4,11 +4,12 @@ import com.hepi.music_api.artist.dto.ArtistDTO;
 import com.hepi.music_api.artist.model.Artist;
 import com.hepi.music_api.artist.repository.ArtistRepository;
 import com.hepi.music_api.artist.service.ArtistService;
-import com.hepi.music_api.country.Country;
+import com.hepi.music_api.country.model.Country;
 import com.hepi.music_api.country.repository.CountryRepository;
 import com.hepi.music_api.songs.model.Song;
 import com.hepi.music_api.songs.repository.SongRepository;
 import com.hepi.music_api.tribe.Tribe;
+import com.hepi.music_api.tribe.repository.TribeRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,12 @@ public class ArtistServiceImpl implements ArtistService {
 
     @Override
     public Artist createArtist(ArtistDTO artistDTO) {
-        Country country = countryRepository.findById(artistDTO.getCountryId())
+        Country country = countryRepository.findByCountryId(artistDTO.getCountryId())
                 .orElseThrow(() -> new IllegalArgumentException("Country not found with ID: " + artistDTO.getCountryId()));
 
         Tribe tribe = null;
         if (artistDTO.getTribeId() != null) {
-            tribe = tribeRepository.find ById(artistDTO.getTribeId())
+            tribe = tribeRepository.findByTribeId(artistDTO.getTribeId())
                     .orElseThrow(() -> new IllegalArgumentException("Tribe not found with ID: " + artistDTO.getTribeId()));
         }
 
@@ -52,12 +53,12 @@ public class ArtistServiceImpl implements ArtistService {
         Artist artist = artistRepository.findByArtistId(artistId)
                 .orElseThrow(() -> new IllegalArgumentException("Artist not found with ID: " + artistId));
 
-        Country country = countryRepository.findById(artistDTO.getCountryId())
+        Country country = countryRepository.findByCountryId(artistDTO.getCountryId())
                 .orElseThrow(() -> new IllegalArgumentException("Country not found with ID: " + artistDTO.getCountryId()));
 
         Tribe tribe = null;
         if (artistDTO.getTribeId() != null) {
-            tribe = tribeRepository.findById(artistDTO.getTribeId())
+            tribe = tribeRepository.findByTribeId(artistDTO.getTribeId())
                     .orElseThrow(() -> new IllegalArgumentException("Tribe not found with ID: " + artistDTO.getTribeId()));
         }
 
@@ -72,14 +73,14 @@ public class ArtistServiceImpl implements ArtistService {
 
     @Override
     public void deleteArtist(Long artistId) {
-        Artist artist = artistRepository.findById(artistId)
+        Artist artist = artistRepository.findByArtistId(artistId)
                 .orElseThrow(() -> new IllegalArgumentException("Artist not found with ID: " + artistId));
         artistRepository.delete(artist);
     }
 
     @Override
     public Artist getArtistById(Long artistId) {
-        return artistRepository.findById(artistId)
+        return artistRepository.findByArtistId(artistId)
                 .orElseThrow(() -> new IllegalArgumentException("Artist not found with ID: " + artistId));
     }
 
@@ -90,7 +91,7 @@ public class ArtistServiceImpl implements ArtistService {
 
     @Override
     public List<Song> getSongsByArtist(Long artistId) {
-        Artist artist = artistRepository.findById(artistId)
+        Artist artist = artistRepository.findByArtistId(artistId)
                 .orElseThrow(() -> new IllegalArgumentException("Artist not found with ID: " + artistId));
         return artist.getSongs();
     }
